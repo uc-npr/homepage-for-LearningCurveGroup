@@ -31,42 +31,19 @@
                         </div>
                         {$i = 1}
                         {foreach $productlist[$category["code"]] as $product}
-                            {if $i is even}
-                                <div class="container-fluid container-lg my-2 my-md-5">
-                                        <div class="row px-4 py-5 my-3 my-md-4 bg-light justify-content-center ">
-                                            <h2 class="text-center text-dark">{$product["name"]}</h2>
-                                            <p class="text-center fs-4 lead mt-2 col-12 col-sm-8 col-md-7 d-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptate maiores nisi cupiditate incidunt doloribus!</p>
-                                        </div>
-                                        <div class="row p=0 flex-column-reverse flex-md-row">
-                                            <div class="col-12 col-md-6 p-0 px-md-3 px-lg-5 d-flex flex-column justify-content-evenly">
-                                            {foreach $product['course'] as $course}
-                                                <a class="text-decoration-none mb-2 mt-2" href="#">
-                                                        <div class="alert alert-primary p-0 m-0 border-0 border-primary border-bottom-0 border-top-0 border-end-0 rounded-2 d-flex align-items-center justify-content-between" role="alert">
-                                                            <img class="img-fluid border-0 rounded-end" src="./images/deskboot.jpg" style="height: 70px;">
-                                                            <p class="m-3 my-0 text-truncate">{$course}</p>
-                                                        </div>
-                                                    </a>
-                                            {/foreach}
-                                            </div>
-                                            <div class="col-12 col-md-6 text-center text-dark p-0 mb-2 mb-md-0">
-                                                <img src="./images/{$product["image"]}" alt="{$product["name"]}" height="auto" width="100%">
-                                            </div>
-                                        </div>
-                                </div>
-                            {else}
                                 <div class="container-fluid container-lg my-2 my-md-5">
                                         <div class="row px-4 py-5 my-3 my-md-3 bg-light justify-content-center ">
                                             <h2 class="text-center text-dark">{$product["name"]}</h2>
                                             <p class="text-center fs-4 lead mt-2 col-12 col-sm-8 col-md-7 d-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptate maiores nisi cupiditate incidunt doloribus!</p>
                                         </div>
-                                        <div class="row p=0">
+                                        <div class="row p=0 {($i is even)?'flex-row-reverse':'flex-row'}">
                                             <div class="col-12 col-md-6 text-center text-dark p-0 mb-2 mb-md-0">
                                                 <img src="./images/{$product["image"]}" alt="{$product["name"]}" style="width:100%; height: 100%; object-fit: cover;">
                                             </div>
                                             <div class="col-12 col-md-6 p-0 px-md-3 px-lg-5 d-flex flex-column justify-content-evenly">
                                             {foreach $product['course'] as $course}
                                                     <a class="text-decoration-none mb-2 mt-2" href="#">
-                                                        <div class="alert alert-primary p-0 m-0 border-0 border-primary border-bottom-0 border-top-0 border-end-0 rounded-2 d-flex align-items-center justify-content-between" role="alert">
+                                                        <div class="alert alert-primary p-0 m-0 border-0 border-primary border-bottom-0 border-top-0 border-end-0 rounded-2 d-flex {($i is even)?'flex-row-reverse':'flex-row'} align-items-center justify-content-between" role="alert">
                                                             <p class="m-3 my-0 text-truncate">{$course}</p>
                                                             <img class="img-fluid border-0 rounded-end" src="./images/deskboot.jpg" style="height: 70px;">
                                                         </div>
@@ -75,7 +52,6 @@
                                             </div>
                                         </div>
                                 </div>
-                            {/if}
                             {$i=$i+1}
                         {/foreach}
                 </div>    
